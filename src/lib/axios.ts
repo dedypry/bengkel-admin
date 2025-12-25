@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const base_url = import.meta.env.VITE_BASE_URL || "http://127.0.0.1:3344";
+const base_url = import.meta.env.VITE_BASE_URL || "https://api-bengkel.90home.id/";
 const http = axios.create({
   baseURL: base_url,
 });
