@@ -1,0 +1,30 @@
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+import { ICompany, IUser } from "@/utils/interfaces/IUser";
+
+const initialState = {
+  user: null as IUser | null,
+  company: null as ICompany | null,
+};
+
+export const authSlice = createSlice({
+  name: "auth",
+  initialState,
+  reducers: {
+    setAuth: (state, action: PayloadAction<IUser>) => {
+      state.user = action.payload;
+      state.company = action.payload.companies[0];
+    },
+    setCompany: (state, action) => {
+      state.company = action.payload;
+    },
+
+    authClear: (state) => {
+      state.user = null;
+      state.company = null;
+    },
+  },
+});
+
+export const { setAuth, authClear, setCompany } = authSlice.actions;
+export default authSlice.reducer;
